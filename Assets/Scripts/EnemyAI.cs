@@ -15,7 +15,7 @@ public class EnemyAI : MonoBehaviour
     public FSMStates currentState;
 
     public float attackDistance = 2f;
-    public float chaseDistance = 10;
+    public float chaseDistance = 6f;
     public float enemySpeed = 1f;
     Vector3 nextDestination;
     float distanceToPlayer;
