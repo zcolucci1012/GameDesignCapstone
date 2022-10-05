@@ -5,7 +5,11 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -203655887218126122
+<<<<<<< Updated upstream
     second: Hook Punch
+=======
+    second: mixamo.com
+>>>>>>> Stashed changes
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -18,7 +22,12 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+<<<<<<< Updated upstream
     rigImportErrors: 
+=======
+    rigImportErrors: "Copied Avatar Rig Configuration mis-match. Transform hierarchy
+      does not match:\n\tTransform 'Hips' for human bone 'Hips' not found\n"
+>>>>>>> Stashed changes
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -33,6 +42,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
+<<<<<<< Updated upstream
     clipAnimations:
     - serializedVersion: 16
       name: Hook Punch
@@ -63,6 +73,9 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+=======
+    clipAnimations: []
+>>>>>>> Stashed changes
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -108,6 +121,7 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
+<<<<<<< Updated upstream
     human:
     - boneName: mixamorig:Hips
       humanName: Hips
@@ -867,6 +881,21 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
+=======
+    human: []
+    skeleton: []
+    armTwist: 1
+    foreArmTwist: 0
+    upperLegTwist: 1
+    legTwist: 0
+    armStretch: 0
+    legStretch: 0
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 1
+    hasExtraRoot: 0
+>>>>>>> Stashed changes
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1

@@ -12,6 +12,13 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+<<<<<<< Updated upstream
+=======
+		public bool basicAttack;
+		public bool specialAttackE;
+		public bool specialAttackR;
+		public bool specialAttackF;
+>>>>>>> Stashed changes
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -43,6 +50,27 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+<<<<<<< Updated upstream
+=======
+
+		public void OnBasicAttack(InputValue value)
+        {
+			BasicAttackInput(value.isPressed);
+        }
+
+		public void OnSpecialAttackE(InputValue value)
+		{
+			SpecialAttackEInput(value.isPressed);
+		}
+		public void OnSpecialAttackF(InputValue value)
+		{
+			SpecialAttackFInput(value.isPressed);
+		}
+		public void OnSpecialAttackR(InputValue value)
+		{
+			SpecialAttackRInput(value.isPressed);
+		}
+>>>>>>> Stashed changes
 #endif
 
 
@@ -66,6 +94,29 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 
+<<<<<<< Updated upstream
+=======
+		public void BasicAttackInput(bool newBasicAttackState)
+        {
+			basicAttack = newBasicAttackState;
+        }
+
+		public void SpecialAttackEInput(bool newSpecialAttackState)
+		{
+			specialAttackE = newSpecialAttackState;
+		}
+
+		public void SpecialAttackRInput(bool newSpecialAttackState)
+		{
+			specialAttackR = newSpecialAttackState;
+		}
+
+		public void SpecialAttackFInput(bool newSpecialAttackState)
+		{
+			specialAttackF = newSpecialAttackState;
+		}
+
+>>>>>>> Stashed changes
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);

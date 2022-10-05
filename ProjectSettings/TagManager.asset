@@ -5,7 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+<<<<<<< Updated upstream
   - Floor
+=======
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -15,8 +18,13 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< Updated upstream
   - 
   - 
+=======
+  - Character
+  - Ground
+>>>>>>> Stashed changes
   - 
   - 
   - 

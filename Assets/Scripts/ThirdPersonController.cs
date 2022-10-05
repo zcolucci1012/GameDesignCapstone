@@ -91,12 +91,39 @@ namespace StarterAssets
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
 
+<<<<<<< Updated upstream
+=======
+        // timeout for attacks
+        private float _basicAttackTimeout = 0.5f;
+        private float _basicAttackTimer = 0.0f;
+        private bool _basicAttackEnabled = false;
+
+        private float _specialAttackETimeout = 2f;
+        private float _specialAttackETimer = 0.0f;
+        private bool _specialAttackEEnabled = false;
+
+        private float _specialAttackFTimeout = 0.5f;
+        private float _specialAttackFTimer = 0.0f;
+        private bool _specialAttackFEnabled = false;
+
+        private float _specialAttackRTimeout = 0.5f;
+        private float _specialAttackRTimer = 0.0f;
+        private bool _specialAttackREnabled = false;
+
+>>>>>>> Stashed changes
         // animation IDs
         private int _animIDSpeed;
         private int _animIDGrounded;
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+<<<<<<< Updated upstream
+=======
+        private int _animIDBasicAttack;
+        private int _animIDSpecialEAttack;
+        private int _animIDSpecialFAttack;
+        private int _animIDSpecialRAttack;
+>>>>>>> Stashed changes
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         private PlayerInput _playerInput;
@@ -159,6 +186,13 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+<<<<<<< Updated upstream
+=======
+            basicAttack();
+            specialEAttack();
+            specialRAttack();
+            specialFAttack();
+>>>>>>> Stashed changes
         }
 
         private void LateUpdate()
@@ -173,6 +207,13 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+<<<<<<< Updated upstream
+=======
+            _animIDBasicAttack = Animator.StringToHash("BasicAttack");
+            _animIDSpecialEAttack = Animator.StringToHash("SpecialE");
+            _animIDSpecialRAttack = Animator.StringToHash("SpecialR");
+            _animIDSpecialFAttack = Animator.StringToHash("SpecialF");
+>>>>>>> Stashed changes
         }
 
         private void GroundedCheck()
@@ -348,6 +389,117 @@ namespace StarterAssets
             }
         }
 
+<<<<<<< Updated upstream
+=======
+
+        private void basicAttack()
+        {
+
+            // if the player pressed the button to do basic attack do attack animation
+            if (_input.basicAttack)
+            {
+                _animator.SetBool(_animIDBasicAttack, true);
+                _basicAttackEnabled = true;
+                _basicAttackTimer += Time.deltaTime;
+               // _input.move = Vector2.zero;
+                Debug.Log("attacking");
+            }
+            if (_basicAttackEnabled)
+            {
+                _basicAttackTimer += Time.deltaTime;
+            }
+            if(_basicAttackTimer >= _basicAttackTimeout)
+            {
+                _animator.SetBool(_animIDBasicAttack, false);
+                _basicAttackEnabled = false;
+                _basicAttackTimer = 0.0f;
+                Debug.Log("attack has stopped");
+                _input.basicAttack = false;
+            }
+        }
+
+
+        private void specialEAttack()
+        {
+            // if the player pressed the button to do basic attack do attack animation
+            if (_input.specialAttackE)
+            {
+                _animator.SetBool(_animIDSpecialEAttack, true);
+                _specialAttackEEnabled = true;
+                _specialAttackETimer += Time.deltaTime;
+                // _input.move = Vector2.zero;
+                Debug.Log("attacking");
+            }
+            if (_specialAttackEEnabled)
+            {
+                _specialAttackETimer += Time.deltaTime;
+            }
+            if (_specialAttackETimer >= _specialAttackETimeout)
+            {
+                _animator.SetBool(_animIDSpecialEAttack, false);
+                _specialAttackEEnabled = false;
+                _specialAttackETimer = 0.0f;
+                Debug.Log("attack has stopped");
+                _input.specialAttackE = false;
+            }
+
+        }
+
+
+        private void specialRAttack()
+        {
+            // if the player pressed the button to do basic attack do attack animation
+            if (_input.specialAttackR)
+            {
+                _animator.SetBool(_animIDSpecialRAttack, true);
+                _specialAttackREnabled = true;
+                _specialAttackRTimer += Time.deltaTime;
+                // _input.move = Vector2.zero;
+                Debug.Log("attacking");
+            }
+            if (_specialAttackREnabled)
+            {
+                _specialAttackRTimer += Time.deltaTime;
+            }
+            if (_specialAttackRTimer >= _specialAttackRTimeout)
+            {
+                _animator.SetBool(_animIDSpecialRAttack, false);
+                _specialAttackREnabled = false;
+                _specialAttackRTimer = 0.0f;
+                Debug.Log("attack has stopped");
+                _input.specialAttackR = false;
+            }
+
+        }
+
+
+        private void specialFAttack()
+        {
+            // if the player pressed the button to do basic attack do attack animation
+            if (_input.specialAttackF)
+            {
+                _animator.SetBool(_animIDSpecialFAttack, true);
+                _specialAttackFEnabled = true;
+                _specialAttackFTimer += Time.deltaTime;
+                // _input.move = Vector2.zero;
+                Debug.Log("attacking");
+            }
+            if (_specialAttackFEnabled)
+            {
+                _specialAttackFTimer += Time.deltaTime;
+            }
+            if (_specialAttackFTimer >= _specialAttackFTimeout)
+            {
+                _animator.SetBool(_animIDSpecialFAttack, false);
+                _specialAttackFEnabled = false;
+                _specialAttackFTimer = 0.0f;
+                Debug.Log("attack has stopped");
+                _input.specialAttackF = false;
+            }
+
+        }
+
+>>>>>>> Stashed changes
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
         {
             if (lfAngle < -360f) lfAngle += 360f;
