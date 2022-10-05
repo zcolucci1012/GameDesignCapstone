@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 8a9fcb678adc30d49b07f8e416bd50d2, type: 2}
+--- !u!1001 &53311345
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1399094701285751044, guid: cb01305f32740e44687b14bf405c9084, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399094701285751044, guid: cb01305f32740e44687b14bf405c9084, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.3216715
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399094701285751044, guid: cb01305f32740e44687b14bf405c9084, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.25030994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399094701285751044, guid: cb01305f32740e44687b14bf405c9084, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.39275265
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399094701285751044, guid: cb01305f32740e44687b14bf405c9084, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399094701285751044, guid: cb01305f32740e44687b14bf405c9084, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399094701285751044, guid: cb01305f32740e44687b14bf405c9084, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399094701285751044, guid: cb01305f32740e44687b14bf405c9084, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399094701285751044, guid: cb01305f32740e44687b14bf405c9084, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399094701285751044, guid: cb01305f32740e44687b14bf405c9084, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399094701285751044, guid: cb01305f32740e44687b14bf405c9084, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738747464505418686, guid: cb01305f32740e44687b14bf405c9084, type: 3}
+      propertyPath: m_Name
+      value: Mafioso (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cb01305f32740e44687b14bf405c9084, type: 3}
 --- !u!1 &197266685
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +354,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &865967801
 GameObject:
@@ -769,11 +826,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868070145}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.75, y: 0.76, z: -26.5}
+  m_LocalPosition: {x: 3.29, y: 0.76, z: -3.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1957337304
 GameObject:
@@ -808,7 +865,7 @@ Transform:
   - {fileID: 2099185612}
   - {fileID: 865967805}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2099185608
 GameObject:
@@ -900,39 +957,11 @@ Transform:
   m_GameObject: {fileID: 2099185608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.82, y: -0.26999998, z: 10.26}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 5}
   m_Children: []
   m_Father: {fileID: 1957337305}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1022810748446933198 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3550733490596760960, guid: cb01305f32740e44687b14bf405c9084, type: 3}
-  m_PrefabInstance: {fileID: 4573262179783658830}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2834514741224746736 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1738747464505418686, guid: cb01305f32740e44687b14bf405c9084, type: 3}
-  m_PrefabInstance: {fileID: 4573262179783658830}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2834514741224746737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2834514741224746736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8350f3ecf304cb45aa2e939b85a0cad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: 0
-  attackDistance: 2
-  chaseDistance: 10
-  enemySpeed: 1
-  player: {fileID: 0}
-  enemyEyes: {fileID: 1022810748446933198}
 --- !u!1001 &4573262179783658830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -940,10 +969,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5834463201295712609, guid: cb01305f32740e44687b14bf405c9084, type: 3}
-      propertyPath: m_Speed
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1399094701285751044, guid: cb01305f32740e44687b14bf405c9084, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -991,10 +1016,6 @@ PrefabInstance:
     - target: {fileID: 1738747464505418686, guid: cb01305f32740e44687b14bf405c9084, type: 3}
       propertyPath: m_Name
       value: Mafioso
-      objectReference: {fileID: 0}
-    - target: {fileID: 5011021921357751166, guid: cb01305f32740e44687b14bf405c9084, type: 3}
-      propertyPath: m_UpdateMode
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb01305f32740e44687b14bf405c9084, type: 3}

@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: 1399094701285751044}
   - component: {fileID: 5011021921357751166}
   - component: {fileID: -5834463201295712609}
+  - component: {fileID: 2834514741224746737}
   m_Layer: 0
   m_Name: Mafioso
   m_TagString: Untagged
@@ -518,7 +519,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 720318564157cfd4c80ce55d9aaab5b9, type: 3}
   m_Controller: {fileID: 9100000, guid: d9fefc0d379a46343a81c4784675bd8d, type: 2}
   m_CullingMode: 1
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -547,6 +548,24 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2834514741224746737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738747464505418686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8350f3ecf304cb45aa2e939b85a0cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  attackDistance: 1.8
+  chaseDistance: 6
+  enemySpeed: 1
+  player: {fileID: 0}
+  enemyEyes: {fileID: 3550733490596760960}
 --- !u!1 &1790911907572038187
 GameObject:
   m_ObjectHideFlags: 0

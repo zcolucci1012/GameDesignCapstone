@@ -14,14 +14,16 @@ public class EnemyAI : MonoBehaviour
 
     public FSMStates currentState;
 
-    public float attackDistance = 1;
+    public float attackDistance = 2f;
     public float chaseDistance = 10;
     public float enemySpeed = 1f;
     Vector3 nextDestination;
     float distanceToPlayer;
     float fov = 100;
     float elapsedTime = 0;
+    float randomInterval = 3.0f;
     float attackTime = 0;
+    int attackType = 3;
 
     public GameObject player;
     public GameObject enemyEyes;
@@ -34,8 +36,9 @@ public class EnemyAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        anim.fireEvents = false;
+        //anim.fireEvents = false;
         player = GameObject.FindGameObjectWithTag("Player");
+        randomInterval = Random.Range(2.0f, 4.0f);
 
         currentState = FSMStates.Patrol;
         Invoke("FindNextPoint", 0.1f);
@@ -72,8 +75,9 @@ public class EnemyAI : MonoBehaviour
         agent.stoppingDistance = 0;
         agent.speed = enemySpeed;
 
-        if (elapsedTime > 3)
+        if (elapsedTime > randomInterval)
         {
+            randomInterval = Random.Range(2.0f, 4.0f);
             elapsedTime = 0;
             FindNextPoint();
         } else if (distanceToPlayer <= chaseDistance && PlayerInFOV())
@@ -91,12 +95,13 @@ public class EnemyAI : MonoBehaviour
 
         nextDestination = player.transform.position;
 
-        agent.stoppingDistance = attackDistance;
+        agent.stoppingDistance = attackDistance - 0.5f;
         agent.speed = enemySpeed + 1;
 
         if (distanceToPlayer <= attackDistance)
         {
             currentState = FSMStates.Attack;
+            attackType = Random.Range(3, 5);
         }
         else if (distanceToPlayer > chaseDistance)
         {
@@ -107,20 +112,20 @@ public class EnemyAI : MonoBehaviour
 
     void UpdateAttackState()
     {
-        anim.SetInteger("animState", 3);
+        anim.SetInteger("animState", attackType);
 
         nextDestination = player.transform.position;
 
-        agent.stoppingDistance = 0;
+        
         agent.speed = 0;
 
-        if (attackTime > 2 && distanceToPlayer > attackDistance && distanceToPlayer <= chaseDistance)
+        if (/*attackTime > 2 && */distanceToPlayer > attackDistance && distanceToPlayer <= chaseDistance)
         {
             currentState = FSMStates.Chase;
             attackTime = 0;
         }
 
-        attackTime += Time.deltaTime;
+        //attackTime += Time.deltaTime;
     }
 
     void FaceTarget(Vector3 target)
@@ -173,4 +178,21 @@ public class EnemyAI : MonoBehaviour
         return false;
     }
 
+    public void Attack()
+    {
+        if (distanceToPlayer <= attackDistance)
+        {
+            Debug.Log("damage player");
+        }
+    }
+
+    public void EndAttack()
+    {
+        attackType = Random.Range(3, 5);
+    }
+
+    public void OnFootstep()
+    {
+        //nothing
+    }
 }
