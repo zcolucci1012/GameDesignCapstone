@@ -17,7 +17,11 @@ MonoBehaviour:
   m_AdvancedSettingsExpanded: 1
   m_ScopedRegistriesSettingsExpanded: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   oneTimeWarningShown: 0
+=======
+  oneTimeWarningShown: 1
+>>>>>>> Stashed changes
 =======
   oneTimeWarningShown: 1
 >>>>>>> Stashed changes
@@ -28,7 +32,11 @@ MonoBehaviour:
     m_Scopes: []
     m_IsDefault: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     m_Capabilities: 7
+=======
+    m_Capabilities: 0
+>>>>>>> Stashed changes
 =======
     m_Capabilities: 0
 >>>>>>> Stashed changes

@@ -31,7 +31,11 @@ EditorSettings:
   m_CachingShaderPreprocessor: 1
   m_PrefabModeAllowAutoSave: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_EnterPlayModeOptionsEnabled: 0
+=======
+  m_EnterPlayModeOptionsEnabled: 1
+>>>>>>> Stashed changes
 =======
   m_EnterPlayModeOptionsEnabled: 1
 >>>>>>> Stashed changes
@@ -41,8 +45,13 @@ EditorSettings:
   m_AssetNamingUsesSpace: 1
   m_UseLegacyProbeSampleCount: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_SerializeInlineMappingsOnOneLine: 1
   m_DisableCookiesInLightmapper: 0
+=======
+  m_SerializeInlineMappingsOnOneLine: 0
+  m_DisableCookiesInLightmapper: 1
+>>>>>>> Stashed changes
 =======
   m_SerializeInlineMappingsOnOneLine: 0
   m_DisableCookiesInLightmapper: 1

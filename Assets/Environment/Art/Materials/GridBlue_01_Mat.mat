@@ -1,7 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!114 &-6599660893097263044
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -15,6 +18,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 4
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!21 &2100000
 Material:
@@ -25,7 +31,11 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: GridBlue_01_Mat
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+=======
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+>>>>>>> Stashed changes
 =======
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
 >>>>>>> Stashed changes
@@ -34,8 +44,14 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_CustomRenderQueue: -1
   stringTagMap: {}
+=======
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
+>>>>>>> Stashed changes
 =======
   m_CustomRenderQueue: 2000
   stringTagMap:
@@ -46,11 +62,17 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: d1118dda59970a2449ee890fa247c4c5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0.004, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: c5c221ed57a3bf6488f8eba0db28a004, type: 3}
@@ -89,12 +111,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
 =======
+=======
+>>>>>>> Stashed changes
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -123,6 +148,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     - _GlossMapScale: 1
     - _Glossiness: 0.477
@@ -131,6 +159,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 0
     - _Parallax: 0.02
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -141,6 +170,8 @@ Material:
     - _Color: {r: 0.27038085, g: 0.6601244, b: 0.8773585, a: 1}
     - _EmissionColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 =======
+=======
+>>>>>>> Stashed changes
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.477
@@ -156,5 +187,8 @@ Material:
     - _Color: {r: 0.27038085, g: 0.6601244, b: 0.8773585, a: 1}
     - _EmissionColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_BuildTextureStacks: []

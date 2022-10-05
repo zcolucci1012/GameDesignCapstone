@@ -92,6 +92,7 @@ namespace StarterAssets
         private float _fallTimeoutDelta;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
         // timeout for attacks
         private float _basicAttackTimeout = 0.5f;
@@ -111,6 +112,8 @@ namespace StarterAssets
         private bool _specialAttackREnabled = false;
 
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         // animation IDs
         private int _animIDSpeed;
         private int _animIDGrounded;
@@ -118,11 +121,14 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
         private int _animIDBasicAttack;
         private int _animIDSpecialEAttack;
         private int _animIDSpecialFAttack;
         private int _animIDSpecialRAttack;
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -187,11 +193,14 @@ namespace StarterAssets
             GroundedCheck();
             Move();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
             basicAttack();
             specialEAttack();
             specialRAttack();
             specialFAttack();
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         }
 
@@ -208,11 +217,14 @@ namespace StarterAssets
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
             _animIDBasicAttack = Animator.StringToHash("BasicAttack");
             _animIDSpecialEAttack = Animator.StringToHash("SpecialE");
             _animIDSpecialRAttack = Animator.StringToHash("SpecialR");
             _animIDSpecialFAttack = Animator.StringToHash("SpecialF");
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         }
 
@@ -390,6 +402,7 @@ namespace StarterAssets
         }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 
         private void basicAttack()
@@ -499,6 +512,8 @@ namespace StarterAssets
 
         }
 
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
         {
