@@ -47,9 +47,6 @@ GraphicsSettings:
     type: 0}
   m_CustomRenderPipeline: {fileID: 11400000, guid: f86b3aed054db7d4a983e73339478814,
     type: 2}
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
   m_TransparencySortMode: 0
   m_TransparencySortAxis: {x: 0, y: 0, z: 1}
@@ -70,11 +67,7 @@ GraphicsSettings:
   m_FogKeepExp2: 1
   m_AlbedoSwatchInfos: []
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_LightsUseLinearIntensity: 0
-=======
-  m_LightsUseLinearIntensity: 1
->>>>>>> Stashed changes
 =======
   m_LightsUseLinearIntensity: 1
 >>>>>>> Stashed changes

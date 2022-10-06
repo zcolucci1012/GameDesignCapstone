@@ -6,10 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   - Floor
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   layers:
@@ -22,13 +19,8 @@ TagManager:
   - 
   - 
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   - 
   - 
-=======
-  - Character
-  - Ground
->>>>>>> Stashed changes
 =======
   - Character
   - Ground

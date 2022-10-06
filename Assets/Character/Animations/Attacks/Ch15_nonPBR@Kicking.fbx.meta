@@ -6,11 +6,7 @@ ModelImporter:
   - first:
       74: -203655887218126122
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     second: Kicking
-=======
-    second: mixamo.com
->>>>>>> Stashed changes
 =======
     second: mixamo.com
 >>>>>>> Stashed changes
@@ -34,18 +30,13 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-<<<<<<< Updated upstream
     animationCompression: 3
-=======
-    animationCompression: 1
->>>>>>> Stashed changes
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     clipAnimations:
     - serializedVersion: 16
@@ -94,9 +85,6 @@ ModelImporter:
 =======
     clipAnimations: []
 >>>>>>> Stashed changes
-=======
-    clipAnimations: []
->>>>>>> Stashed changes
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -142,7 +130,6 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     human:
     - boneName: mixamorig:Hips
@@ -896,10 +883,6 @@ ModelImporter:
     human: []
     skeleton: []
 >>>>>>> Stashed changes
-=======
-    human: []
-    skeleton: []
->>>>>>> Stashed changes
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -910,7 +893,6 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-<<<<<<< Updated upstream
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
@@ -918,15 +900,6 @@ ModelImporter:
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1
-=======
-    hasExtraRoot: 0
-    skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
-  humanoidOversampling: 1
-  avatarSetup: 0
->>>>>>> Stashed changes
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
