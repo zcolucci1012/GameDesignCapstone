@@ -125,6 +125,10 @@ public class ReadmeEditor : Editor {
 		m_BodyStyle.wordWrap = true;
 		m_BodyStyle.fontSize = 14;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+		m_BodyStyle.richText = true;
+>>>>>>> Stashed changes
 =======
 		m_BodyStyle.richText = true;
 >>>>>>> Stashed changes

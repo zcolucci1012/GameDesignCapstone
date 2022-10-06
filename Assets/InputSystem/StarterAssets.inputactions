@@ -12,10 +12,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     "interactions": ""
 =======
                     "interactions": "",
                     "initialStateCheck": true
+>>>>>>> Stashed changes
+=======
+                    "interactions": ""
 >>>>>>> Stashed changes
                 },
                 {
@@ -25,10 +29,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     "interactions": ""
 =======
                     "interactions": "",
                     "initialStateCheck": true
+>>>>>>> Stashed changes
+=======
+                    "interactions": ""
 >>>>>>> Stashed changes
                 },
                 {
@@ -38,10 +46,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     "interactions": ""
 =======
                     "interactions": "",
                     "initialStateCheck": false
+>>>>>>> Stashed changes
+=======
+                    "interactions": ""
 >>>>>>> Stashed changes
                 },
                 {
@@ -50,6 +62,7 @@
                     "id": "980e881e-182c-404c-8cbf-3d09fdb48fef",
                     "expectedControlType": "",
                     "processors": "",
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                     "interactions": ""
 =======
@@ -91,6 +104,9 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+>>>>>>> Stashed changes
+=======
+                    "interactions": ""
 >>>>>>> Stashed changes
                 }
             ],
@@ -271,6 +287,7 @@
                     "isComposite": false,
                     "isPartOfComposite": false
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
                 },
                 {
@@ -360,6 +377,8 @@
                     "action": "SpecialAttackF",
                     "isComposite": false,
                     "isPartOfComposite": false
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 }
             ]

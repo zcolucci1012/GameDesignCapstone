@@ -5,6 +5,7 @@ PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 22
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   productGUID: e03530445fe33ab42b66faeabc575348
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
@@ -17,14 +18,25 @@ PlayerSettings:
   AndroidEnableSustainedPerformanceMode: 0
   defaultScreenOrientation: 3
 >>>>>>> Stashed changes
+=======
+  productGUID: dd2bd0c0e8fadb14aad5c116f8eb4115
+  AndroidProfiler: 0
+  AndroidFilterTouchesWhenObscured: 0
+  AndroidEnableSustainedPerformanceMode: 0
+  defaultScreenOrientation: 3
+>>>>>>> Stashed changes
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   productName: GameDesignCapstone
 =======
   productName: CapstoneFinalProject
+>>>>>>> Stashed changes
+=======
+  productName: Isometric test
 >>>>>>> Stashed changes
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -68,6 +80,9 @@ PlayerSettings:
   defaultScreenHeightWeb: 600
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 1
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_MTRendering: 1
   mipStripping: 0
@@ -80,7 +95,11 @@ PlayerSettings:
   allowedAutorotateToPortrait: 1
   allowedAutorotateToPortraitUpsideDown: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   allowedAutorotateToLandscapeRight: 1
+=======
+  allowedAutorotateToLandscapeRight: 0
+>>>>>>> Stashed changes
 =======
   allowedAutorotateToLandscapeRight: 0
 >>>>>>> Stashed changes
@@ -92,7 +111,11 @@ PlayerSettings:
   androidStartInFullscreen: 1
   androidRenderOutsideSafeArea: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   androidUseSwappy: 1
+=======
+  androidUseSwappy: 0
+>>>>>>> Stashed changes
 =======
   androidUseSwappy: 0
 >>>>>>> Stashed changes
@@ -176,8 +199,14 @@ PlayerSettings:
     16:9: 1
     Others: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   bundleVersion: 1.0
   preloadedAssets: []
+=======
+  bundleVersion: 0.1
+  preloadedAssets:
+  - {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
+>>>>>>> Stashed changes
 =======
   bundleVersion: 0.1
   preloadedAssets:
@@ -200,7 +229,13 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   applicationIdentifier: {}
+=======
+  applicationIdentifier:
+    Android: com.UnityTechnologies.StarterAssetsThirdPerson
+    Standalone: com.Unity-Technologies.StarterAssets-ThirdPerson
+>>>>>>> Stashed changes
 =======
   applicationIdentifier:
     Android: com.UnityTechnologies.StarterAssetsThirdPerson
@@ -211,7 +246,11 @@ PlayerSettings:
     iPhone: 0
     tvOS: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   overrideDefaultApplicationIdentifier: 0
+=======
+  overrideDefaultApplicationIdentifier: 1
+>>>>>>> Stashed changes
 =======
   overrideDefaultApplicationIdentifier: 1
 >>>>>>> Stashed changes
@@ -293,9 +332,15 @@ PlayerSettings:
   appleEnableProMotion: 0
   shaderPrecisionModel: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   clonedFromGUID: 00000000000000000000000000000000
   templatePackageId: 
   templateDefaultScene: 
+=======
+  clonedFromGUID: 069d2a054b0693f4fb55a934cc27a637
+  templatePackageId: com.unity.template.gaming-third-person@1.1.0
+  templateDefaultScene: Assets/Scenes/Playground.unity
+>>>>>>> Stashed changes
 =======
   clonedFromGUID: 069d2a054b0693f4fb55a934cc27a637
   templatePackageId: com.unity.template.gaming-third-person@1.1.0
@@ -334,6 +379,7 @@ PlayerSettings:
   AndroidAppBundleSizeToValidate: 150
   m_BuildTargetIcons: []
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_BuildTargetPlatformIcons: []
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsJobs: []
@@ -341,6 +387,8 @@ PlayerSettings:
   m_BuildTargetGraphicsAPIs: []
   m_BuildTargetVRSettings: []
 =======
+=======
+>>>>>>> Stashed changes
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
@@ -776,6 +824,10 @@ PlayerSettings:
   scriptingDefineSymbols:
     1: STARTER_ASSETS_PACKAGES_CHECKED
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    7: STARTER_ASSETS_PACKAGES_CHECKED
+>>>>>>> Stashed changes
 =======
     7: STARTER_ASSETS_PACKAGES_CHECKED
 >>>>>>> Stashed changes
@@ -793,7 +845,11 @@ PlayerSettings:
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   gcIncremental: 1
+=======
+  gcIncremental: 0
+>>>>>>> Stashed changes
 =======
   gcIncremental: 0
 >>>>>>> Stashed changes
@@ -830,7 +886,12 @@ PlayerSettings:
   metroTileForegroundText: 2
   metroTileBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21568628, a: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628, a: 1}
+=======
+  metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628,
+    a: 1}
+>>>>>>> Stashed changes
 =======
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628,
     a: 1}

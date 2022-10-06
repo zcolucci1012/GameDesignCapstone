@@ -13,11 +13,14 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 		public bool basicAttack;
 		public bool specialAttackE;
 		public bool specialAttackR;
 		public bool specialAttackF;
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 		[Header("Movement Settings")]
@@ -51,6 +54,7 @@ namespace StarterAssets
 			SprintInput(value.isPressed);
 		}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 
 		public void OnBasicAttack(InputValue value)
@@ -70,6 +74,8 @@ namespace StarterAssets
 		{
 			SpecialAttackRInput(value.isPressed);
 		}
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 #endif
 
@@ -95,6 +101,7 @@ namespace StarterAssets
 		}
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 		public void BasicAttackInput(bool newBasicAttackState)
         {
@@ -116,6 +123,8 @@ namespace StarterAssets
 			specialAttackF = newSpecialAttackState;
 		}
 
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		private void OnApplicationFocus(bool hasFocus)
 		{
