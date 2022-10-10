@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     public FSMStates currentState;
 
-    public float attackDistance = 2f;
+    public float attackDistance = 1.8f;
     public float chaseDistance = 6f;
     public float enemySpeed = 1f;
     Vector3 nextDestination;
@@ -75,6 +75,8 @@ public class EnemyAI : MonoBehaviour
         agent.stoppingDistance = 0;
         agent.speed = enemySpeed;
 
+        Debug.Log((distanceToPlayer <= chaseDistance) + ", " + PlayerInFOV());
+
         if (elapsedTime > randomInterval)
         {
             randomInterval = Random.Range(2.0f, 4.0f);
@@ -115,17 +117,16 @@ public class EnemyAI : MonoBehaviour
         anim.SetInteger("animState", attackType);
 
         nextDestination = player.transform.position;
-
         
         agent.speed = 0;
 
-        if (/*attackTime > 2 && */distanceToPlayer > attackDistance && distanceToPlayer <= chaseDistance)
+        if (attackTime > 2 && distanceToPlayer > attackDistance && distanceToPlayer <= chaseDistance)
         {
             currentState = FSMStates.Chase;
             attackTime = 0;
         }
 
-        //attackTime += Time.deltaTime;
+        attackTime += Time.deltaTime;
     }
 
     void FaceTarget(Vector3 target)
@@ -161,12 +162,18 @@ public class EnemyAI : MonoBehaviour
     bool PlayerInFOV()
     {
         RaycastHit hit;
-        Vector3 directionToPlayer = player.transform.position - enemyEyes.transform.position;
+        Vector3 eyesPosition = enemyEyes.transform.position;
+        eyesPosition.y += 1f;
+        Vector3 playerPosition = player.transform.position;
+        playerPosition.y += 0.5f;
+        Vector3 directionToPlayer = playerPosition - eyesPosition;
+        Debug.DrawLine(playerPosition, eyesPosition);
 
         if (Vector3.Angle(directionToPlayer, enemyEyes.transform.forward) <= fov)
         {
-            if (Physics.Raycast(enemyEyes.transform.position, directionToPlayer, out hit, chaseDistance))
+            if (Physics.Raycast(eyesPosition, directionToPlayer, out hit, chaseDistance))
             {
+                Debug.Log(hit.collider.tag);
                 if (hit.collider.CompareTag("Player"))
                 {
                     print("Player in sight");
