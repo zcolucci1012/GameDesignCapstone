@@ -87,6 +87,20 @@ namespace StarterAssets
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
 
+        //timeout for attacks
+        private float _basicAttackTimeout = 0.5f;
+        private float _basicAttackTimer = 0.0f;
+        private bool _basicAttackEnabled = false;
+
+        private float _specialAttackRTimeout = 0.5f;
+        private float _specialAttackRTimer = 0.0f;
+        private bool _specialAttackREnabled = false;
+
+        private float _specialAttackFTimeout = 2f;
+        private float _specialAttackFTimer = 0.0f;
+        private bool _specialAttackFEnabled = false;
+
+
         // timeout deltatime
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
@@ -97,6 +111,9 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+        private int _animIDBasicAttack;
+        private int _animIDSpecialAttackR;
+        private int _animIDSpecialAttackF;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         private PlayerInput _playerInput;
@@ -159,6 +176,9 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            BasicAttack();
+            SpecialAttackR();
+            SpecialAttackF();
         }
 
         private void LateUpdate()
@@ -173,6 +193,9 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+            _animIDBasicAttack = Animator.StringToHash("BasicAttack");
+            _animIDSpecialAttackR = Animator.StringToHash("SpecialR");
+            _animIDSpecialAttackF = Animator.StringToHash("SpecialF");
         }
 
         private void GroundedCheck()
@@ -346,6 +369,79 @@ namespace StarterAssets
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
+        }
+
+
+        private void BasicAttack()
+        {
+            if(_input.basicAttack)
+            {
+                _animator.SetBool(_animIDBasicAttack, true);
+                _basicAttackEnabled = true;
+                _basicAttackTimer += Time.deltaTime;
+            }
+
+            if(_basicAttackEnabled)
+            {
+                _basicAttackTimer += Time.deltaTime;
+            }
+
+            if(_basicAttackTimer >= _basicAttackTimeout)
+            {
+                _animator.SetBool(_animIDBasicAttack, false);
+                _basicAttackEnabled = false;    
+                _basicAttackTimer = 0.0f;
+                _input.basicAttack = false;
+            }
+            
+        }
+
+        private void SpecialAttackR()
+        {
+            if (_input.specialR)
+            {
+                _animator.SetBool(_animIDSpecialAttackR, true);
+                _specialAttackREnabled = true;
+                _specialAttackRTimer += Time.deltaTime;
+            }
+
+            if (_specialAttackREnabled)
+            {
+                _specialAttackRTimer += Time.deltaTime;
+            }
+
+            if (_specialAttackRTimer >= _specialAttackRTimeout)
+            {
+                _animator.SetBool(_animIDSpecialAttackR, false);
+                _specialAttackREnabled = false;
+                _specialAttackRTimer = 0.0f;
+                _input.specialR = false;
+            }
+
+        }
+
+        private void SpecialAttackF()
+        {
+            if (_input.specialF)
+            {
+                _animator.SetBool(_animIDSpecialAttackF, true);
+                _specialAttackFEnabled = true;
+                _specialAttackFTimer += Time.deltaTime;
+            }
+
+            if (_specialAttackFEnabled)
+            {
+                _specialAttackFTimer += Time.deltaTime;
+            }
+
+            if (_specialAttackFTimer >= _specialAttackFTimeout)
+            {
+                _animator.SetBool(_animIDSpecialAttackF, false);
+                _specialAttackFEnabled = false;
+                _specialAttackFTimer = 0.0f;
+                _input.specialF = false;
+            }
+
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)

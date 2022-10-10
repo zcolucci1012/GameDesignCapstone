@@ -12,6 +12,9 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool basicAttack;
+		public bool specialR;
+		public bool specialF;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -43,6 +46,22 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnBasicAttack(InputValue value)
+        {
+			BasickAttackInput(value.isPressed);
+        }
+
+		public void OnSpecialR(InputValue value)
+        {
+			SpecialAttackRInput(value.isPressed);
+        }
+
+		public void OnSpecialF(InputValue value)
+		{
+			SpecialAttackFInput(value.isPressed);
+		}
+
 #endif
 
 
@@ -64,6 +83,21 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+		}
+
+		public void BasickAttackInput(bool newBasicAttackState)
+        {
+			basicAttack = newBasicAttackState;
+        }
+
+		public void SpecialAttackRInput(bool newSpecialRState)
+        {
+			specialR = newSpecialRState;
+        }
+
+		public void SpecialAttackFInput(bool newSpecialFState)
+		{
+			specialF = newSpecialFState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)
