@@ -476,9 +476,10 @@ GameObject:
   - component: {fileID: 5011021921357751166}
   - component: {fileID: -5834463201295712609}
   - component: {fileID: 2834514741224746737}
+  - component: {fileID: 3694790920938596486}
   m_Layer: 0
   m_Name: Mafioso
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -561,11 +562,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  attackDistance: 1.8
+  attackDistance: 1.5
   chaseDistance: 6
   enemySpeed: 1
   player: {fileID: 0}
   enemyEyes: {fileID: 3550733490596760960}
+--- !u!136 &3694790920938596486
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738747464505418686}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.191666
+  m_Height: 1.7977054
+  m_Direction: 1
+  m_Center: {x: -0.0038366318, y: 0.9098722, z: 0}
 --- !u!1 &1790911907572038187
 GameObject:
   m_ObjectHideFlags: 0

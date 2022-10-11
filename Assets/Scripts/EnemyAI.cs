@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     public FSMStates currentState;
 
-    public float attackDistance = 1.8f;
+    public float attackDistance = 1.25f;
     public float chaseDistance = 6f;
     public float enemySpeed = 1f;
     Vector3 nextDestination;
@@ -75,8 +75,6 @@ public class EnemyAI : MonoBehaviour
         agent.stoppingDistance = 0;
         agent.speed = enemySpeed;
 
-        Debug.Log((distanceToPlayer <= chaseDistance) + ", " + PlayerInFOV());
-
         if (elapsedTime > randomInterval)
         {
             randomInterval = Random.Range(2.0f, 4.0f);
@@ -97,13 +95,13 @@ public class EnemyAI : MonoBehaviour
 
         nextDestination = player.transform.position;
 
-        agent.stoppingDistance = attackDistance - 0.5f;
-        agent.speed = enemySpeed + 1;
+        agent.stoppingDistance = attackDistance;
+        agent.speed = enemySpeed + 2;
 
         if (distanceToPlayer <= attackDistance)
         {
             currentState = FSMStates.Attack;
-            attackType = Random.Range(3, 5);
+            attackType = Random.Range(3, 4); // change to 5 for kick
         }
         else if (distanceToPlayer > chaseDistance)
         {
@@ -120,7 +118,7 @@ public class EnemyAI : MonoBehaviour
         
         agent.speed = 0;
 
-        if (attackTime > 2 && distanceToPlayer > attackDistance && distanceToPlayer <= chaseDistance)
+        if (attackTime > 1 && distanceToPlayer > attackDistance && distanceToPlayer <= chaseDistance)
         {
             currentState = FSMStates.Chase;
             attackTime = 0;
@@ -167,7 +165,7 @@ public class EnemyAI : MonoBehaviour
         Vector3 playerPosition = player.transform.position;
         playerPosition.y += 0.5f;
         Vector3 directionToPlayer = playerPosition - eyesPosition;
-        Debug.DrawLine(playerPosition, eyesPosition);
+        //Debug.DrawLine(playerPosition, eyesPosition);
 
         if (Vector3.Angle(directionToPlayer, enemyEyes.transform.forward) <= fov)
         {
@@ -187,18 +185,44 @@ public class EnemyAI : MonoBehaviour
 
     public void Attack()
     {
+        //Vector3 directionToPlayer = (player.transform.position - this.transform.position).normalized;
+        //directionToPlayer.y = 0;
         if (distanceToPlayer <= attackDistance)
         {
-            Debug.Log("damage player");
+            //Debug.Log("damage player");
+            player.GetComponent<PlayerDamage>().PlayerHit(10, 0.25f, this.transform.forward);
         }
     }
 
     public void EndAttack()
     {
-        attackType = Random.Range(3, 5);
+        attackType = Random.Range(3, 4); // change to 5 for kick
     }
 
     public void OnFootstep()
+    {
+        //nothing
+    }
+
+    public void EnemyHit(int damage, float knockback, Vector3 knockbackDirection)
+    {
+        GetComponent<Rigidbody>().AddForce(knockbackDirection * knockback, ForceMode.Impulse);
+
+        anim.SetBool("GotHit", true);
+        Invoke("ResetGotHit", 0.05f);
+    }
+
+    void ResetGotHit()
+    {
+        anim.SetBool("GotHit", false);
+    }
+
+    void CanMove()
+    {
+        //nothing
+    }
+
+    void CantMove()
     {
         //nothing
     }

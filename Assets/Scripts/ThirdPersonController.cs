@@ -139,6 +139,7 @@ namespace StarterAssets
             }
         }
 
+        private bool canMove = true;
 
         private void Awake()
         {
@@ -292,7 +293,8 @@ namespace StarterAssets
 
             // move the player
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
-                             new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+                            new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+            
 
             // update animator if using character
             if (_hasAnimator)
@@ -482,6 +484,30 @@ namespace StarterAssets
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+            }
+        }
+
+        public void CanMove()
+        {
+            canMove = true;
+        }
+
+        public void CantMove()
+        {
+            canMove = false;
+        }
+
+        public void BasicAttackHit()
+        {
+            Collider[] enemiesInRange = Physics.OverlapSphere(this.transform.position + this.transform.forward, 1f);
+
+            foreach (Collider c in enemiesInRange)
+            {
+                if (c.tag == "Enemy")
+                {
+                    c.gameObject.GetComponent<EnemyAI>().EnemyHit(10, 25f, this.transform.forward);
+                }
+                    
             }
         }
     }
