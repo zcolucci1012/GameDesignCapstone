@@ -519,7 +519,22 @@ namespace StarterAssets
             {
                 if (c.tag == "Enemy")
                 {
-                    c.gameObject.GetComponent<EnemyAI>().EnemyHit(10, 25f, this.transform.up);
+                    c.gameObject.GetComponent<EnemyAI>().EnemyHit(6, 25f, this.transform.up);
+                }
+
+            }
+
+        }
+
+        private void SpecialAttackFHit()
+        {
+            Collider[] enemiesInRange = Physics.OverlapSphere(this.transform.position + this.transform.forward, 1f);
+
+            foreach (Collider c in enemiesInRange)
+            {
+                if (c.tag == "Enemy")
+                {
+                    c.gameObject.GetComponent<EnemyAI>().EnemyHit(10, 10f, this.transform.forward);
                 }
 
             }
