@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  attackDistance: 1.5
+  attackDistance: 1
   chaseDistance: 6
   enemySpeed: 1
   player: {fileID: 0}

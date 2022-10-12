@@ -29,6 +29,10 @@ public class EnemyAI : MonoBehaviour
     public GameObject enemyEyes;
     NavMeshAgent agent;
     Animator anim;
+    Rigidbody rb;
+
+    bool canMove = true;
+    int hp = 10;
 
 
     // Start is called before the first frame update
@@ -39,6 +43,7 @@ public class EnemyAI : MonoBehaviour
         //anim.fireEvents = false;
         player = GameObject.FindGameObjectWithTag("Player");
         randomInterval = Random.Range(2.0f, 4.0f);
+        rb = GetComponent<Rigidbody>();
 
         currentState = FSMStates.Patrol;
         Invoke("FindNextPoint", 0.1f);
@@ -62,7 +67,10 @@ public class EnemyAI : MonoBehaviour
                 break;
         }
 
-        agent.SetDestination(nextDestination);
+        if (canMove && agent.enabled)
+        {
+            agent.SetDestination(nextDestination);
+        }
         FaceTarget(nextDestination);
 
         elapsedTime += Time.deltaTime;
@@ -94,8 +102,6 @@ public class EnemyAI : MonoBehaviour
         anim.SetInteger("animState", 2);
 
         nextDestination = player.transform.position;
-
-        agent.stoppingDistance = attackDistance;
         agent.speed = enemySpeed + 2;
 
         if (distanceToPlayer <= attackDistance)
@@ -206,7 +212,15 @@ public class EnemyAI : MonoBehaviour
 
     public void EnemyHit(int damage, float knockback, Vector3 knockbackDirection)
     {
-        GetComponent<Rigidbody>().AddForce(knockbackDirection * knockback, ForceMode.Impulse);
+        hp -= damage;
+        if (hp <= 0)
+        {
+            Invoke("Die", .7f);
+        }
+        //agent.enabled = false;
+        //rb.isKinematic = false;
+        //rb.AddForce(100 * knockback * knockbackDirection);
+        
 
         anim.SetBool("GotHit", true);
         Invoke("ResetGotHit", 0.05f);
@@ -219,11 +233,20 @@ public class EnemyAI : MonoBehaviour
 
     void CanMove()
     {
-        //nothing
+        canMove = true;
+        //agent.enabled = true;
+        //rb.isKinematic = true;
     }
 
     void CantMove()
     {
-        //nothing
+        canMove = false;
+        agent.SetDestination(this.transform.position);
+        //agent.enabled = false;
+    }
+
+    void Die()
+    {
+        Destroy(this.gameObject);
     }
 }

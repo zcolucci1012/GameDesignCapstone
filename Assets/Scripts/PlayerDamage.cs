@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class PlayerDamage : MonoBehaviour
         hp -= damage;
         if (hp <= 0)
         {
-            //Debug.Log("Player is dead.");
+            Invoke("Die", 0.7f);
         }
 
         //Debug.Log(knockback * knockbackDirection);
@@ -39,6 +40,12 @@ public class PlayerDamage : MonoBehaviour
     void ResetGotHit()
     {
         anim.SetBool("GotHit", false);
+    }
+
+    void Die()
+    {
+        Destroy(this.gameObject);
+        SceneManager.LoadScene(0);
     }
 
 }
