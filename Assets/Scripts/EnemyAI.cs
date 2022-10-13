@@ -95,6 +95,8 @@ public class EnemyAI : MonoBehaviour
         {
             currentState = FSMStates.Attack;
         }
+
+        Debug.DrawLine(this.transform.position, nextDestination, Color.red);
     }
 
     void UpdateChaseState()
@@ -135,7 +137,16 @@ public class EnemyAI : MonoBehaviour
 
     void FaceTarget(Vector3 target)
     {
-        Vector3 directionToTarget = (target - transform.position).normalized;
+        Vector3 directionToTarget;
+        if (currentState == FSMStates.Patrol)
+        {
+            directionToTarget = agent.desiredVelocity.normalized;
+        }
+        else
+        {
+            directionToTarget = (target - transform.position).normalized;
+        }
+        
         directionToTarget.y = 0;
         Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10 * Time.deltaTime);
@@ -159,7 +170,7 @@ public class EnemyAI : MonoBehaviour
                 !hit.collider.CompareTag("Floor")) &&
                 tries < 15);
 
-        if (tries == 15) { print("hmmm"); }
+        if (tries == 15) { Debug.Log("hmmm"); }
         else { nextDestination = nextPoint; }
     }
 
@@ -177,7 +188,6 @@ public class EnemyAI : MonoBehaviour
         {
             if (Physics.Raycast(eyesPosition, directionToPlayer, out hit, chaseDistance))
             {
-                Debug.Log(hit.collider.tag);
                 if (hit.collider.CompareTag("Player"))
                 {
                     print("Player in sight");
@@ -220,7 +230,7 @@ public class EnemyAI : MonoBehaviour
         //agent.enabled = false;
         //rb.isKinematic = false;
         //rb.AddForce(100 * knockback * knockbackDirection);
-        
+        currentState = FSMStates.Chase;
 
         anim.SetBool("GotHit", true);
         Invoke("ResetGotHit", 0.05f);
