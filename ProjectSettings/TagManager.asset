@@ -7,8 +7,6 @@ TagManager:
   - CinemachineTarget
   - Floor
   - Enemy
-  - EnemyProjectile
-  - Robot
   layers:
   - Default
   - TransparentFX

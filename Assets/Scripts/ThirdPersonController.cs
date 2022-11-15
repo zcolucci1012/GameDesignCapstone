@@ -507,10 +507,6 @@ namespace StarterAssets
                 {
                     c.gameObject.GetComponent<EnemyAI>().EnemyHit(4, 25f, this.transform.forward);
                 }
-                else if (c.tag == "Robot")
-                {
-                    c.gameObject.GetComponent<RobotAI>().EnemyHit(4, 25f, this.transform.forward);
-                }
                     
             }
         }
@@ -524,10 +520,6 @@ namespace StarterAssets
                 if (c.tag == "Enemy")
                 {
                     c.gameObject.GetComponent<EnemyAI>().EnemyHit(6, 25f, this.transform.up);
-                }
-                else if (c.tag == "Robot")
-                {
-                    c.gameObject.GetComponent<RobotAI>().EnemyHit(6, 25f, this.transform.up);
                 }
 
             }
@@ -543,10 +535,6 @@ namespace StarterAssets
                 if (c.tag == "Enemy")
                 {
                     c.gameObject.GetComponent<EnemyAI>().EnemyHit(10, 10f, this.transform.forward);
-                }
-                else if (c.tag == "Robot")
-                {
-                    c.gameObject.GetComponent<RobotAI>().EnemyHit(10, 10f, this.transform.forward);
                 }
 
             }
