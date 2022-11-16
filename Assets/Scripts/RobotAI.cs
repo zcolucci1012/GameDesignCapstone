@@ -263,7 +263,7 @@ public class RobotAI : MonoBehaviour
             Vector3 direction = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward;
             nextPoint = this.transform.position + direction * 5;
             tries++;
-            loop = !Physics.Raycast(nextPoint + new Vector3(0f, 2f, 0f), Vector3.down, out hit, 100);
+            loop = !Physics.Raycast(nextPoint, Vector3.down, out hit, 100);
         } while ((loop ||
                 !hit.collider.CompareTag("Floor")) &&
                 tries < 15);
