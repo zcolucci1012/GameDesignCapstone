@@ -15,6 +15,7 @@ namespace StarterAssets
 		public bool basicAttack;
 		public bool specialR;
 		public bool specialF;
+        public bool transport;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -61,6 +62,11 @@ namespace StarterAssets
 		{
 			SpecialAttackFInput(value.isPressed);
 		}
+
+        public void OnTransport(InputValue value)
+        {
+            TransportInput(value.isPressed);
+        }
 
 #endif
 
@@ -109,6 +115,11 @@ namespace StarterAssets
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
+
+        private void TransportInput(bool newTransportState)
+        {
+            transport = newTransportState;
+        }
 	}
 	
 }

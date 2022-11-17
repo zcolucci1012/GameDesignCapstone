@@ -127,6 +127,8 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
+        private bool isPresent = true;
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -180,6 +182,7 @@ namespace StarterAssets
             BasicAttack();
             SpecialAttackR();
             SpecialAttackF();
+            Transport();
         }
 
         private void LateUpdate()
@@ -444,6 +447,18 @@ namespace StarterAssets
                 _input.specialF = false;
             }
 
+        }
+
+        private void Transport()
+        {
+            if (_input.transport)
+            {
+                this.transform.position = new Vector3(this.transform.position.x + (isPresent ? 100f : -100f),
+                    this.transform.position.y,
+                    this.transform.position.z + (isPresent ? 100f : -100f));
+                _input.transport = false;
+                isPresent = !isPresent;
+            }
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
