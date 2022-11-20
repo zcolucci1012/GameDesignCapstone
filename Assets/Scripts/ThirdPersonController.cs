@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -128,6 +129,14 @@ namespace StarterAssets
         private bool _hasAnimator;
 
         private bool isPresent = true;
+        private float transportTimer = 0;
+        private float transportTime = 15;
+        private bool almostReady = true;
+        private bool invincible = false;
+
+        public Cinemachine.CinemachineVirtualCamera _cinemachineCamera;
+        public Camera otherTimeCamera;
+        public GameObject otherTimeOverlay;
 
         private bool IsCurrentDeviceMouse
         {
@@ -170,6 +179,9 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            otherTimeOverlay.SetActive(false);
+            transportTime = Random.Range(15f, 30f);
         }
 
         private void Update()
@@ -182,12 +194,14 @@ namespace StarterAssets
             BasicAttack();
             SpecialAttackR();
             SpecialAttackF();
-            Transport();
+            Invincibility();
         }
 
         private void LateUpdate()
         {
             CameraRotation();
+            Transport();
+            OtherCameraUpdate();
         }
 
         private void AssignAnimationIDs()
@@ -236,6 +250,11 @@ namespace StarterAssets
             // Cinemachine will follow this target
             CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
                 _cinemachineTargetYaw, 0.0f);
+        }
+
+        private void Invincibility()
+        {
+            //flash, hopefully
         }
 
         private void Move()
@@ -331,13 +350,13 @@ namespace StarterAssets
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                    //_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 
                     // update animator if using character
-                    if (_hasAnimator)
-                    {
-                        _animator.SetBool(_animIDJump, true);
-                    }
+                    //if (_hasAnimator)
+                    //{
+                    //    _animator.SetBool(_animIDJump, true);
+                    //}
                 }
 
                 // jump timeout
@@ -451,14 +470,77 @@ namespace StarterAssets
 
         private void Transport()
         {
-            if (_input.transport)
+            if (transportTimer > transportTime)
             {
-                this.transform.position = new Vector3(this.transform.position.x + (isPresent ? 100f : -100f),
-                    this.transform.position.y,
-                    this.transform.position.z + (isPresent ? 100f : -100f));
-                _input.transport = false;
-                isPresent = !isPresent;
+                _controller.enabled = false;
+                _cinemachineCamera.GetCinemachineComponent<Cinemachine.CinemachineFramingTransposer>().m_XDamping = 0;
+                _cinemachineCamera.GetCinemachineComponent<Cinemachine.CinemachineFramingTransposer>().m_YDamping = 0;
+                _cinemachineCamera.GetCinemachineComponent<Cinemachine.CinemachineFramingTransposer>().m_ZDamping = 0;
+                if (isPresent)
+                {
+                    Debug.Log("transported forward");
+                    this.transform.position = new Vector3(this.transform.position.x + 100f,
+                        this.transform.position.y,
+                        this.transform.position.z + 100f);
+                    isPresent = false;
+                }
+                else
+                {
+                    Debug.Log("transported back");
+                    this.transform.position = new Vector3(this.transform.position.x - 100f,
+                        this.transform.position.y,
+                        this.transform.position.z - 100f);
+                    isPresent = true;
+                }
+                transportTimer = 0;
+                transportTime = Random.Range(15f, 30f);
+                Invoke("ResetControllerAndDamping", 0.1f);
+                ToggleInvincible();
+                Invoke("ToggleInvincible", 1.0f);
             }
+            else if (almostReady && transportTimer > transportTime - 2)
+            {
+                ToggleDisplay();
+                Invoke("ToggleDisplay", 0.33f);
+                Invoke("ToggleDisplay", 0.66f);
+                Invoke("ToggleDisplay", 1.0f);
+                Invoke("ToggleDisplay", 1.33f);
+                Invoke("ToggleDisplay", 1.66f);
+                almostReady = false;
+            }
+            else
+            {
+                Debug.Log("incrementing");
+                transportTimer += Time.deltaTime;
+            }                
+        }
+
+        public void ToggleInvincible()
+        {
+            invincible = !invincible;
+        }
+
+        public void OtherCameraUpdate()
+        {
+            otherTimeCamera.transform.position = new Vector3(_mainCamera.transform.position.x + (isPresent ? 100f: -100f),
+                _mainCamera.transform.position.y,
+                _mainCamera.transform.position.z + (isPresent ? 100f : -100f));
+            otherTimeCamera.transform.rotation = _mainCamera.transform.rotation;
+        }
+
+        public void ToggleDisplay()
+        {
+            otherTimeOverlay.SetActive(!otherTimeOverlay.activeSelf);
+        }
+
+        private void ResetControllerAndDamping()
+        {
+            _controller.enabled = true;
+            _cinemachineCamera.GetCinemachineComponent<Cinemachine.CinemachineFramingTransposer>().m_XDamping = 1;
+            _cinemachineCamera.GetCinemachineComponent<Cinemachine.CinemachineFramingTransposer>().m_YDamping = 1;
+            _cinemachineCamera.GetCinemachineComponent<Cinemachine.CinemachineFramingTransposer>().m_ZDamping = 1;
+            otherTimeOverlay.SetActive(false);
+            almostReady = true;
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -510,6 +592,11 @@ namespace StarterAssets
         public void CantMove()
         {
             canMove = false;
+        }
+
+        public bool GetInvincible()
+        {
+            return this.invincible;
         }
 
         public void BasicAttackHit()

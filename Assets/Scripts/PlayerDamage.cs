@@ -8,22 +8,26 @@ public class PlayerDamage : MonoBehaviour
     int hp = 100;
     CharacterController cc;
     Animator anim;
+    StarterAssets.ThirdPersonController tpc;
+    bool invincible = false;
 
     // Start is called before the first frame update
     void Start()
     {
         cc = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        tpc = GetComponent<StarterAssets.ThirdPersonController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        invincible = tpc.GetInvincible();
     }
 
     public void PlayerHit(int damage, float knockback, Vector3 knockbackDirection)
     {
+        if (invincible) return;
         hp -= damage;
         if (hp <= 0)
         {
