@@ -16,12 +16,13 @@ namespace StarterAssets
 		public bool specialR;
 		public bool specialF;
         public bool transport;
+        public Vector2 mousePosition;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
 		[Header("Mouse Cursor Settings")]
-		public bool cursorLocked = true;
+		public bool cursorLocked = false;
 		public bool cursorInputForLook = true;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -66,6 +67,11 @@ namespace StarterAssets
         public void OnTransport(InputValue value)
         {
             TransportInput(value.isPressed);
+        }
+
+        public void OnMousePosition(InputValue value)
+        {
+            MousePositionInput(value.Get<Vector2>());
         }
 
 #endif
@@ -119,6 +125,11 @@ namespace StarterAssets
         private void TransportInput(bool newTransportState)
         {
             transport = newTransportState;
+        }
+
+        private void MousePositionInput(Vector2 newMousePosition)
+        {
+            mousePosition = newMousePosition;
         }
 	}
 	

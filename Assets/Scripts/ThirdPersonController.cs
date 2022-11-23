@@ -89,7 +89,7 @@ namespace StarterAssets
         private float _terminalVelocity = 53.0f;
 
         //timeout for attacks
-        private float _basicAttackTimeout = 0.5f;
+        private float _basicAttackTimeout = 0.2f;
         private float _basicAttackTimer = 0.0f;
         private bool _basicAttackEnabled = false;
 
@@ -115,6 +115,7 @@ namespace StarterAssets
         private int _animIDBasicAttack;
         private int _animIDSpecialAttackR;
         private int _animIDSpecialAttackF;
+        private int _animIDBasicAttackFire;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         private PlayerInput _playerInput;
@@ -137,6 +138,12 @@ namespace StarterAssets
         public Cinemachine.CinemachineVirtualCamera _cinemachineCamera;
         public Camera otherTimeCamera;
         public GameObject otherTimeOverlay;
+
+        public GameObject cursorImage;
+
+        private Vector3 aimLocation;
+        public GameObject bullet;
+        private bool canFire = true;
 
         private bool IsCurrentDeviceMouse
         {
@@ -195,6 +202,8 @@ namespace StarterAssets
             SpecialAttackR();
             SpecialAttackF();
             Invincibility();
+            CursorMovement();
+            Aim();
         }
 
         private void LateUpdate()
@@ -214,6 +223,7 @@ namespace StarterAssets
             _animIDBasicAttack = Animator.StringToHash("BasicAttack");
             _animIDSpecialAttackR = Animator.StringToHash("SpecialR");
             _animIDSpecialAttackF = Animator.StringToHash("SpecialF");
+            _animIDBasicAttackFire = Animator.StringToHash("BasicAttackFire");
         }
 
         private void GroundedCheck()
@@ -255,6 +265,24 @@ namespace StarterAssets
         private void Invincibility()
         {
             //flash, hopefully
+        }
+
+        private void CursorMovement()
+        {
+            Cursor.visible = false;
+            this.cursorImage.transform.position = Mouse.current.position.ReadValue();
+        }
+
+        private void Aim()
+        {
+            Vector2 mouse = Mouse.current.position.ReadValue();
+
+            Ray ray = Camera.main.ScreenPointToRay(mouse);
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity))
+            {
+                aimLocation = raycastHit.point;
+                aimLocation.y = 1f;
+            }
         }
 
         private void Move()
@@ -395,12 +423,33 @@ namespace StarterAssets
             }
         }
 
+        private void Fire()
+        {
+            GameObject newBullet = Instantiate(bullet, this.transform.position + new Vector3(0, 1.5f, 0), this.transform.rotation);
+            Vector3 directionToCursor = (aimLocation - (this.transform.position + new Vector3(0, 1.5f, 0))).normalized;
+            this.transform.LookAt(aimLocation);
+            newBullet.GetComponent<Rigidbody>().AddForce(directionToCursor * 50, ForceMode.Impulse);
+        }
 
         private void BasicAttack()
         {
+            _animator.SetBool(isPresent ? _animIDBasicAttackFire : _animIDBasicAttack, false);
+            _basicAttackTimeout = isPresent ? 0.2f : 0.6f;
             if(_input.basicAttack)
             {
-                _animator.SetBool(_animIDBasicAttack, true);
+                if (isPresent)
+                {
+                    _animator.SetBool(_animIDBasicAttack, true);
+                } else
+                {
+                    if (canFire)
+                    {
+                        _animator.SetBool(_animIDBasicAttackFire, true);
+                        Invoke("Fire", 0.1f);
+                        _input.basicAttack = false;
+                        canFire = false;
+                    }
+                }
                 _basicAttackEnabled = true;
                 _basicAttackTimer += Time.deltaTime;
             }
@@ -412,7 +461,14 @@ namespace StarterAssets
 
             if(_basicAttackTimer >= _basicAttackTimeout)
             {
-                _animator.SetBool(_animIDBasicAttack, false);
+                if (isPresent)
+                {
+                    _animator.SetBool(_animIDBasicAttack, false);
+                } else
+                {
+                    _animator.SetBool(_animIDBasicAttackFire, false);
+                    canFire = true;
+                }
                 _basicAttackEnabled = false;    
                 _basicAttackTimer = 0.0f;
                 _input.basicAttack = false;
@@ -478,7 +534,6 @@ namespace StarterAssets
                 _cinemachineCamera.GetCinemachineComponent<Cinemachine.CinemachineFramingTransposer>().m_ZDamping = 0;
                 if (isPresent)
                 {
-                    Debug.Log("transported forward");
                     this.transform.position = new Vector3(this.transform.position.x + 100f,
                         this.transform.position.y,
                         this.transform.position.z + 100f);
@@ -486,7 +541,6 @@ namespace StarterAssets
                 }
                 else
                 {
-                    Debug.Log("transported back");
                     this.transform.position = new Vector3(this.transform.position.x - 100f,
                         this.transform.position.y,
                         this.transform.position.z - 100f);
@@ -497,6 +551,9 @@ namespace StarterAssets
                 Invoke("ResetControllerAndDamping", 0.1f);
                 ToggleInvincible();
                 Invoke("ToggleInvincible", 1.0f);
+                _input.cursorLocked = false;
+                cursorImage.SetActive(!cursorImage.activeSelf);
+                
             }
             else if (almostReady && transportTimer > transportTime - 2)
             {
@@ -510,7 +567,6 @@ namespace StarterAssets
             }
             else
             {
-                Debug.Log("incrementing");
                 transportTimer += Time.deltaTime;
             }                
         }
@@ -644,11 +700,11 @@ namespace StarterAssets
             {
                 if (c.tag == "Enemy")
                 {
-                    c.gameObject.GetComponent<EnemyAI>().EnemyHit(10, 10f, this.transform.forward);
+                    c.gameObject.GetComponent<EnemyAI>().EnemyHit(8, 10f, this.transform.forward);
                 }
                 else if (c.tag == "Robot")
                 {
-                    c.gameObject.GetComponent<RobotAI>().EnemyHit(10, 10f, this.transform.forward);
+                    c.gameObject.GetComponent<RobotAI>().EnemyHit(8, 10f, this.transform.forward);
                 }
 
             }

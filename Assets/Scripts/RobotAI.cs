@@ -21,7 +21,7 @@ public class RobotAI : MonoBehaviour
     public GameObject player;
     public GameObject bullet;
     public GameObject rifleEnd;
-    public float fireRate = 2.0f;
+    public float fireRate = 0.75f;
     public GameObject enemyEyes;
     public float fov = 45f;
     public float health = 40;
@@ -234,7 +234,7 @@ public class RobotAI : MonoBehaviour
     {
         if (elapsedTime >= fireRate)
         {
-            Invoke("Shoot", 0.2f);
+            Invoke("Shoot", 0.01f);
             elapsedTime = 0.0f;
         }
     }
@@ -308,6 +308,26 @@ public class RobotAI : MonoBehaviour
 
         anim.SetBool("GotHit", true);
         Invoke("ResetGotHit", 0.05f);
+    }
+
+    public void EnemyHit(int damage, float knockback, Vector3 knockbackDirection, bool stunned)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            Invoke("Die", .7f);
+        }
+        //agent.enabled = false;
+        //rb.isKinematic = false;
+        //rb.AddForce(100 * knockback * knockbackDirection);
+
+        if (stunned)
+        {
+            currentState = FSMStates.Chase;
+            elapsedTime = 0;
+            anim.SetBool("GotHit", true);
+            Invoke("ResetGotHit", 0.05f);
+        }
     }
 
     void ResetGotHit()
