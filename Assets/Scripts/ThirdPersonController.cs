@@ -144,6 +144,9 @@ namespace StarterAssets
         private Vector3 aimLocation;
         public GameObject bullet;
         private bool canFire = true;
+        public GameObject gun;
+
+        public GameObject winText;
 
         private bool IsCurrentDeviceMouse
         {
@@ -204,6 +207,7 @@ namespace StarterAssets
             Invincibility();
             CursorMovement();
             Aim();
+            CheckWin();
         }
 
         private void LateUpdate()
@@ -265,6 +269,15 @@ namespace StarterAssets
         private void Invincibility()
         {
             //flash, hopefully
+        }
+
+        private void CheckWin()
+        {
+            if(GameObject.FindGameObjectsWithTag("Robot").Length == 0 &&
+                GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+            {
+                winText.SetActive(true);
+            }
         }
 
         private void CursorMovement()
@@ -553,6 +566,7 @@ namespace StarterAssets
                 Invoke("ToggleInvincible", 1.0f);
                 _input.cursorLocked = false;
                 cursorImage.SetActive(!cursorImage.activeSelf);
+                gun.SetActive(!gun.activeSelf);
                 
             }
             else if (almostReady && transportTimer > transportTime - 2)

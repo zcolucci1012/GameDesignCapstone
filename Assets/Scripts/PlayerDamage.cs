@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerDamage : MonoBehaviour
     Animator anim;
     StarterAssets.ThirdPersonController tpc;
     bool invincible = false;
+    public Slider healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class PlayerDamage : MonoBehaviour
     void Update()
     {
         invincible = tpc.GetInvincible();
+        healthBar.value = hp;
     }
 
     public void PlayerHit(int damage, float knockback, Vector3 knockbackDirection)
@@ -37,6 +40,7 @@ public class PlayerDamage : MonoBehaviour
         //Debug.Log(knockback * knockbackDirection);
         cc.Move(knockbackDirection * knockback);
 
+        Debug.Log("damaged for " + damage);
         anim.SetBool("GotHit", true);
         Invoke("ResetGotHit", 0.05f);
     }

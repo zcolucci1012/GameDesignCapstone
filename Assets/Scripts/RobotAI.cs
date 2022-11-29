@@ -24,7 +24,7 @@ public class RobotAI : MonoBehaviour
     public float fireRate = 0.75f;
     public GameObject enemyEyes;
     public float fov = 45f;
-    public float health = 40;
+    public float hp = 40;
     public AudioClip seePlayer;
     public AudioClip engaging;
 
@@ -39,7 +39,6 @@ public class RobotAI : MonoBehaviour
     private float findNextPointTimer = 0;
 
     private float playDistanceFromPlayer = 0.65f;
-    int hp = 100;
     bool canMove = true;
     float reengageTimer = 0;
     float randomWaitTime = 0;
