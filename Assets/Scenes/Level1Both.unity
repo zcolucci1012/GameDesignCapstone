@@ -10179,7 +10179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387550727983708763, guid: 7dfae768926735443a5eca3ef6690ebf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.209
+      value: 10.53
       objectReference: {fileID: 0}
     - target: {fileID: 4387550727983708763, guid: 7dfae768926735443a5eca3ef6690ebf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10187,7 +10187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387550727983708763, guid: 7dfae768926735443a5eca3ef6690ebf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.42
+      value: 9.94
       objectReference: {fileID: 0}
     - target: {fileID: 4387550727983708763, guid: 7dfae768926735443a5eca3ef6690ebf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13370,7 +13370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387550727983708763, guid: 7dfae768926735443a5eca3ef6690ebf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.209
+      value: 10.55
       objectReference: {fileID: 0}
     - target: {fileID: 4387550727983708763, guid: 7dfae768926735443a5eca3ef6690ebf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13378,7 +13378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387550727983708763, guid: 7dfae768926735443a5eca3ef6690ebf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.57
+      value: 13.28
       objectReference: {fileID: 0}
     - target: {fileID: 4387550727983708763, guid: 7dfae768926735443a5eca3ef6690ebf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17125,6 +17125,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
   - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
   FootstepAudioVolume: 0.3
+  Punching: {fileID: 0}
+  Shooting: {fileID: 0}
+  Kicking: {fileID: 0}
+  Swiping: {fileID: 0}
+  GotHit: {fileID: 0}
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.3
@@ -18322,7 +18327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387550727983708763, guid: 7dfae768926735443a5eca3ef6690ebf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.209
+      value: 10.54
       objectReference: {fileID: 0}
     - target: {fileID: 4387550727983708763, guid: 7dfae768926735443a5eca3ef6690ebf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18330,7 +18335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387550727983708763, guid: 7dfae768926735443a5eca3ef6690ebf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.46
+      value: 11.61
       objectReference: {fileID: 0}
     - target: {fileID: 4387550727983708763, guid: 7dfae768926735443a5eca3ef6690ebf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -28343,9 +28348,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1254030517}
     - target: {fileID: 1701526590944941818, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
+      propertyPath: GotHit
+      value: 
+      objectReference: {fileID: 8300000, guid: 3802fab6bc2645e488ce87915a92735d, type: 3}
+    - target: {fileID: 1701526590944941818, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
+      propertyPath: Kicking
+      value: 
+      objectReference: {fileID: 8300000, guid: 20c1d6a60e6e3d84695d7f2d2a5b4a91, type: 3}
+    - target: {fileID: 1701526590944941818, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
+      propertyPath: Swiping
+      value: 
+      objectReference: {fileID: 8300000, guid: 38d2fcdb1645d6645ac8e4393ed6456b, type: 3}
+    - target: {fileID: 1701526590944941818, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
       propertyPath: winText
       value: 
       objectReference: {fileID: 1814249488}
+    - target: {fileID: 1701526590944941818, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
+      propertyPath: Punching
+      value: 
+      objectReference: {fileID: 8300000, guid: 816498c4efc265645be4b79683e34900, type: 3}
+    - target: {fileID: 1701526590944941818, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
+      propertyPath: Shooting
+      value: 
+      objectReference: {fileID: 8300000, guid: a96cc0aa8e8b73e4cb3044b3e0f4aae4, type: 3}
     - target: {fileID: 1701526590944941818, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
       propertyPath: cursorImage
       value: 
@@ -28362,6 +28387,10 @@ PrefabInstance:
       propertyPath: _cinemachineCamera
       value: 
       objectReference: {fileID: 1710046626}
+    - target: {fileID: 1701526590944941818, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
+      propertyPath: FootstepAudioVolume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1701526590944941822, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
       propertyPath: m_Name
       value: Player

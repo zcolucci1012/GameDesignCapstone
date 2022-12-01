@@ -33,6 +33,13 @@ namespace StarterAssets
         public AudioClip[] FootstepAudioClips;
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
 
+        public AudioClip Punching;
+        public AudioClip Shooting;
+        public AudioClip Kicking;
+        public AudioClip Swiping;
+        public AudioClip GotHit;
+        bool soundPlayed = false;
+
         [Space(10)]
         [Tooltip("The height the player can jump")]
         public float JumpHeight = 1.2f;
@@ -453,11 +460,19 @@ namespace StarterAssets
                 if (isPresent)
                 {
                     _animator.SetBool(_animIDBasicAttack, true);
+                    if (soundPlayed == false) {
+                    AudioSource.PlayClipAtPoint(Punching, transform.TransformPoint(_controller.center));
+                    soundPlayed = true;
+                    }
                 } else
                 {
                     if (canFire)
                     {
                         _animator.SetBool(_animIDBasicAttackFire, true);
+                        if (soundPlayed == false) {
+                           AudioSource.PlayClipAtPoint(Shooting, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                           soundPlayed = true;
+                        }
                         Invoke("Fire", 0.1f);
                         _input.basicAttack = false;
                         canFire = false;
@@ -465,6 +480,7 @@ namespace StarterAssets
                 }
                 _basicAttackEnabled = true;
                 _basicAttackTimer += Time.deltaTime;
+    
             }
 
             if(_basicAttackEnabled)
@@ -485,6 +501,7 @@ namespace StarterAssets
                 _basicAttackEnabled = false;    
                 _basicAttackTimer = 0.0f;
                 _input.basicAttack = false;
+                soundPlayed = false;
             }
             
         }
@@ -495,7 +512,12 @@ namespace StarterAssets
             {
                 _animator.SetBool(_animIDSpecialAttackR, true);
                 _specialAttackREnabled = true;
+                if (soundPlayed == false) {
+                    AudioSource.PlayClipAtPoint(Swiping, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                    soundPlayed = true;
+                }
                 _specialAttackRTimer += Time.deltaTime;
+                
             }
 
             if (_specialAttackREnabled)
@@ -509,6 +531,7 @@ namespace StarterAssets
                 _specialAttackREnabled = false;
                 _specialAttackRTimer = 0.0f;
                 _input.specialR = false;
+                soundPlayed = false;
             }
 
         }
@@ -520,6 +543,10 @@ namespace StarterAssets
                 _animator.SetBool(_animIDSpecialAttackF, true);
                 _specialAttackFEnabled = true;
                 _specialAttackFTimer += Time.deltaTime;
+                if (soundPlayed == false) {
+                    AudioSource.PlayClipAtPoint(Kicking, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                    soundPlayed = true;
+                }
             }
 
             if (_specialAttackFEnabled)
@@ -533,6 +560,7 @@ namespace StarterAssets
                 _specialAttackFEnabled = false;
                 _specialAttackFTimer = 0.0f;
                 _input.specialF = false;
+                soundPlayed = false;
             }
 
         }
@@ -678,6 +706,7 @@ namespace StarterAssets
                 if (c.tag == "Enemy")
                 {
                     c.gameObject.GetComponent<EnemyAI>().EnemyHit(4, 25f, this.transform.forward);
+                    AudioSource.PlayClipAtPoint(GotHit, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
                 else if (c.tag == "Robot")
                 {
@@ -696,6 +725,7 @@ namespace StarterAssets
                 if (c.tag == "Enemy")
                 {
                     c.gameObject.GetComponent<EnemyAI>().EnemyHit(6, 25f, this.transform.up);
+                    AudioSource.PlayClipAtPoint(GotHit, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
                 else if (c.tag == "Robot")
                 {
@@ -715,6 +745,7 @@ namespace StarterAssets
                 if (c.tag == "Enemy")
                 {
                     c.gameObject.GetComponent<EnemyAI>().EnemyHit(8, 10f, this.transform.forward);
+                    AudioSource.PlayClipAtPoint(GotHit, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
                 else if (c.tag == "Robot")
                 {
