@@ -38,6 +38,7 @@ namespace StarterAssets
         public AudioClip Kicking;
         public AudioClip Swiping;
         public AudioClip GotHit;
+        public AudioClip GotHitHard;
         bool soundPlayed = false;
 
         [Space(10)]
@@ -746,6 +747,7 @@ namespace StarterAssets
                 {
                     c.gameObject.GetComponent<EnemyAI>().EnemyHit(8, 10f, this.transform.forward);
                     AudioSource.PlayClipAtPoint(GotHit, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                    AudioSource.PlayClipAtPoint(GotHitHard, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
                 else if (c.tag == "Robot")
                 {
