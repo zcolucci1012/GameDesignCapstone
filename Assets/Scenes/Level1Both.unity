@@ -17130,6 +17130,8 @@ MonoBehaviour:
   Kicking: {fileID: 0}
   Swiping: {fileID: 0}
   GotHit: {fileID: 0}
+  GotHitHard: {fileID: 0}
+  Yelling: {fileID: 0}
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.3
@@ -28360,6 +28362,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 38d2fcdb1645d6645ac8e4393ed6456b, type: 3}
     - target: {fileID: 1701526590944941818, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
+      propertyPath: Yelling
+      value: 
+      objectReference: {fileID: 8300000, guid: 863c4d09002712b43bdeb4f31ef10899, type: 3}
+    - target: {fileID: 1701526590944941818, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
       propertyPath: winText
       value: 
       objectReference: {fileID: 1814249488}
@@ -28371,6 +28377,10 @@ PrefabInstance:
       propertyPath: Shooting
       value: 
       objectReference: {fileID: 8300000, guid: a96cc0aa8e8b73e4cb3044b3e0f4aae4, type: 3}
+    - target: {fileID: 1701526590944941818, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
+      propertyPath: GotHitHard
+      value: 
+      objectReference: {fileID: 8300000, guid: 181b46bf9bda9ad4e8f578ff14fbf1b6, type: 3}
     - target: {fileID: 1701526590944941818, guid: 6b1e378ab42dc364bb35afc3c713ae7b, type: 3}
       propertyPath: cursorImage
       value: 

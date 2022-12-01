@@ -39,7 +39,9 @@ namespace StarterAssets
         public AudioClip Swiping;
         public AudioClip GotHit;
         public AudioClip GotHitHard;
+        public AudioClip Yelling;
         bool soundPlayed = false;
+        int countForYell = 3;
 
         [Space(10)]
         [Tooltip("The height the player can jump")]
@@ -461,9 +463,14 @@ namespace StarterAssets
                 if (isPresent)
                 {
                     _animator.SetBool(_animIDBasicAttack, true);
+                    Debug.Log(countForYell);
                     if (soundPlayed == false) {
-                    AudioSource.PlayClipAtPoint(Punching, transform.TransformPoint(_controller.center));
-                    soundPlayed = true;
+                      AudioSource.PlayClipAtPoint(Punching, transform.TransformPoint(_controller.center));
+                      if (countForYell % 3 == 0) {
+                        AudioSource.PlayClipAtPoint(Yelling, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                      }
+                      countForYell++;
+                      soundPlayed = true;
                     }
                 } else
                 {
